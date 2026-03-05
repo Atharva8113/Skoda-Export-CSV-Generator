@@ -1,0 +1,140 @@
+Parsing Com Invoice 100008454.pdf
+Page 1 Table 1 Rows: 2
+Skipping table, header='Konditionsart / Condition type Wert / ValueEinh.'
+Page 2 Table 1 Rows: 2
+Skipping table, header='SKODA AUTO Volkswagen India Private Limited
+E-1, MIDC Industrial Area, Phase III, Village Nigoje,
+Mhalunge Kharabwadi Chakan Tal, Khed, Pune,
+Maharashtra, 410501 India
+GSTIN: 27AACCV4229P1ZT
+PAN No.: AACCV4229P | IEC Code: 0307019390'
+Page 2 Table 2 Rows: 21
+Row 0 is header, skipping
+Row 1 is header, skipping
+Row 2 is header, skipping
+Row 3 is header, skipping
+Row 4: pos_no='', cols=15
+Row 5: pos_no='', cols=15
+Row 6: pos_no='000030', cols=15
+Row 7: pos_no='', cols=15
+Row 8: pos_no='000040', cols=15
+Row 9: pos_no='', cols=15
+Row 10: pos_no='', cols=15
+Row 11: pos_no='000050', cols=15
+Row 12: pos_no='', cols=15
+Row 13: pos_no='000060', cols=15
+Row 14: pos_no='', cols=15
+Row 15: pos_no='', cols=15
+Row 16: pos_no='000070', cols=15
+Row 17: pos_no='', cols=15
+Row 18: pos_no='000080', cols=15
+Row 19: pos_no='', cols=15
+Row 20: pos_no='', cols=15
+Page 3 Table 1 Rows: 2
+Skipping table, header='SKODA AUTO Volkswagen India Private Limited
+E-1, MIDC Industrial Area, Phase III, Village Nigoje,
+Mhalunge Kharabwadi Chakan Tal, Khed, Pune,
+Maharashtra, 410501 India
+GSTIN: 27AACCV4229P1ZT
+PAN No.: AACCV4229P | IEC Code: 0307019390'
+Page 3 Table 2 Rows: 22
+Row 0 is header, skipping
+Row 1 is header, skipping
+Row 2 is header, skipping
+Row 3 is header, skipping
+Row 4: pos_no='', cols=15
+Row 5: pos_no='000110', cols=15
+Row 6: pos_no='', cols=15
+Row 7: pos_no='000120', cols=15
+Row 8: pos_no='', cols=15
+Row 9: pos_no='000130', cols=15
+Row 10: pos_no='', cols=15
+Row 11: pos_no='', cols=15
+Row 12: pos_no='000140', cols=15
+Row 13: pos_no='', cols=15
+Row 14: pos_no='000150', cols=15
+Row 15: pos_no='', cols=15
+Row 16: pos_no='000160', cols=15
+Row 17: pos_no='', cols=15
+Row 18: pos_no='000170', cols=15
+Row 19: pos_no='', cols=15
+Row 20: pos_no='000180', cols=15
+Row 21: pos_no='', cols=15
+Page 4 Table 1 Rows: 2
+Skipping table, header='SKODA AUTO Volkswagen India Private Limited
+E-1, MIDC Industrial Area, Phase III, Village Nigoje,
+Mhalunge Kharabwadi Chakan Tal, Khed, Pune,
+Maharashtra, 410501 India
+GSTIN: 27AACCV4229P1ZT
+PAN No.: AACCV4229P | IEC Code: 0307019390'
+Page 4 Table 2 Rows: 21
+Row 0 is header, skipping
+Row 1 is header, skipping
+Row 2 is header, skipping
+Row 3 is header, skipping
+Row 4: pos_no='', cols=15
+Row 5: pos_no='000200', cols=15
+Row 6: pos_no='', cols=15
+Row 7: pos_no='', cols=15
+Row 8: pos_no='000210', cols=15
+Row 9: pos_no='', cols=15
+Row 10: pos_no='000220', cols=15
+Row 11: pos_no='', cols=15
+Row 12: pos_no='000230', cols=15
+Row 13: pos_no='', cols=15
+Row 14: pos_no='', cols=15
+Row 15: pos_no='000240', cols=15
+Row 16: pos_no='', cols=15
+Row 17: pos_no='000250', cols=15
+Row 18: pos_no='', cols=15
+Row 19: pos_no='000260', cols=15
+Row 20: pos_no='', cols=15
+Page 5 Table 1 Rows: 2
+Skipping table, header='SKODA AUTO Volkswagen India Private Limited
+E-1, MIDC Industrial Area, Phase III, Village Nigoje,
+Mhalunge Kharabwadi Chakan Tal, Khed, Pune,
+Maharashtra, 410501 India
+GSTIN: 27AACCV4229P1ZT
+PAN No.: AACCV4229P | IEC Code: 0307019390'
+Page 5 Table 2 Rows: 20
+Row 0 is header, skipping
+Row 1 is header, skipping
+Row 2 is header, skipping
+Row 3 is header, skipping
+Row 4: pos_no='000280', cols=15
+Row 5: pos_no='', cols=15
+Row 6: pos_no='000290', cols=15
+Row 7: pos_no='', cols=15
+Row 8: pos_no='000300', cols=15
+Row 9: pos_no='', cols=15
+Row 10: pos_no='000310', cols=15
+Row 11: pos_no='', cols=15
+Row 12: pos_no='000320', cols=15
+Row 13: pos_no='', cols=15
+Row 14: pos_no='000330', cols=15
+Row 15: pos_no='', cols=15
+Row 16: pos_no='000340', cols=15
+Row 17: pos_no='', cols=15
+Row 18: pos_no='000350', cols=15
+Row 19: pos_no='', cols=15
+Page 6 Table 1 Rows: 2
+Skipping table, header='SKODA AUTO Volkswagen India Private Limited
+E-1, MIDC Industrial Area, Phase III, Village Nigoje,
+Mhalunge Kharabwadi Chakan Tal, Khed, Pune,
+Maharashtra, 410501 India
+GSTIN: 27AACCV4229P1ZT
+PAN No.: AACCV4229P | IEC Code: 0307019390'
+Page 6 Table 2 Rows: 15
+Skipping table, header='Behältertyp Menge ME Länge MM Breite MM Höhe MM HU-Volumen M3 Gesamtvolumen M3 Verpackungskosten EUR
+Box type Quantity Unit Length Width Height HU_VolumenH Total volume Total'
+Page 7 Table 1 Rows: 2
+Skipping table, header='NOS OF PKGS'
+Page 7 Table 2 Rows: 2
+Skipping table, header='CONTAINER NOS.'
+Page 8 Table 1 Rows: 2
+Skipping table, header='SKODA AUTO Volkswagen India Private Limited
+E-1, MIDC Industrial Area, Phase III, Village Nigoje,
+Mhalunge Kharabwadi Chakan Tal, Khed, Pune,
+Maharashtra, 410501 India
+GSTIN: 27AACCV4229P1ZT
+PAN No.: AACCV4229P | IEC Code: 0307019390'

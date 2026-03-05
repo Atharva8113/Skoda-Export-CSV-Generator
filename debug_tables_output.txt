@@ -1,0 +1,281 @@
+
+=== Page 1, Table 0 === (2 rows, 1 cols)
+  Row[0][0] = 'Konditionsart / Condition type Wert / ValueEinh.'
+  Row[0]: pos=Konditionsart / Condition type Wert / ValueEinh. | part= | desc=
+  Row[1]: pos=Materialpreis
+15,577.17 EUR
+Price of Material
+Verpackung Programmliefg.
+3,122.59 EUR
+Packing and Logistics Costs
+Fracht
+400.00 EUR
+Inland freight & other handling costs
+Totalwert FOB
+19,099.76 EUR
+Total FOB value
+Seefrachtkosten
+750.00 EUR
+Sea freight costs
+Totalwert CFR
+19,849.76 EUR
+Total CFR value
+Total Value in Words
+EUR NINETEEN THOUSAND EIGHT HUNDRED FORTY-NINE AND SEVENTY-SIX Cents | part= | desc=
+
+=== Page 2, Table 0 === (2 rows, 6 cols)
+  Row[0][0] = 'SKODA AUTO Volkswagen India Private Limited\nE-1, MIDC Industrial Area, Phase III, Village Nigoje,\nMhalunge Kharabwadi Chakan Tal, Khed, Pune,\nMaharashtra, 410501 India\nGSTIN: 27AACCV4229P1ZT\nPAN No.: AACCV4229P | IEC Code: 0307019390'
+  Row[0]: pos=SKODA AUTO Volkswagen India Private Limited
+E-1, MIDC Industrial Area, Phase III, Village Nigoje,
+Mhalunge Kharabwadi Chakan Tal, Khed, Pune,
+Maharashtra, 410501 India
+GSTIN: 27AACCV4229P1ZT
+PAN No.: AACCV4229P | IEC Code: 0307019390 | part=Rechnung
+Invoice
+100008454 | desc=MA-Nr.
+MA-No.
+VN0002106
+  Row[1]: pos=None | part=Original / Origin | desc=Lieferung
+Delivery
+61854544
+
+=== Page 2, Table 1 === (21 rows, 15 cols)
+  Row[0][0] = 'PosNr. ZeichnungsNr. Benennung Lnd-Code Zolltarif- DBK-code Bestell-Nr. HU-Nr. / HU-No. Menge ME BZA Nettogewicht KG Preis/100 EUR Gesamtpreis EUR\nNr.\nPos-No. Drawing-No. Description CoO HS Code Purch. Ord. No. Quant. Unit Ac.ty. Net weight Price/100 Total'
+  Row[0]: pos=PosNr. ZeichnungsNr. Benennung Lnd-Code Zolltarif- DBK-code Bestell-Nr. HU-Nr. / HU-No. Menge ME BZA Nettogewicht KG Preis/100 EUR Gesamtpreis EUR
+Nr.
+Pos-No. Drawing-No. Description CoO HS Code Purch. Ord. No. Quant. Unit Ac.ty. Net weight Price/100 Total | part= | desc=
+  Row[1]: pos=000010 | part=5JL 809 606 | desc=SEITENTEIL <-- DATA
+  Row[2]: pos=None | part= | desc=SIDE PANEL
+  Row[3]: pos=000020 | part=5JL 810 273 | desc=SCHARNIERVERSTA
+ERK <-- DATA
+  Row[4]: pos=None | part= | desc=
+  Row[5]: pos=None | part= | desc=HINGE REINF.
+  Row[6]: pos=000030 | part=5JL 821 135 | desc=STREBE <-- DATA
+  Row[7]: pos=None | part= | desc=STRUT
+  Row[8]: pos=000040 | part=5QP 804 243 A | desc=SCHWELLERVERST
+AERK <-- DATA
+  Row[9]: pos=None | part= | desc=
+  Row[10]: pos=None | part= | desc=SILL
+REINFORCEMENT
+  Row[11]: pos=000050 | part=5JL 839 085 | desc=BOWDENZUG <-- DATA
+  Row[12]: pos=None | part= | desc=BOWDEN CABLE
+  Row[13]: pos=000060 | part=5QP 803 091 A | desc=LAENGSTRAEGER,
+VORN <-- DATA
+  Row[14]: pos=None | part= | desc=
+  Row[15]: pos=None | part= | desc=SIDE MEMBER,FR
+  Row[16]: pos=000070 | part=5QP 813 113 | desc=BODEN,HI.
+VORDERT. <-- DATA
+  Row[17]: pos=None | part= | desc=FLOOR,RR,FRONT
+PAR
+  Row[18]: pos=000080 | part=5QP 825 735 | desc=WAS.
+KRAFTSTOFFBEH. <-- DATA
+  Row[19]: pos=None | part= | desc=
+  Row[20]: pos=None | part= | desc=HEAT SHIELDING,
+FU
+
+=== Page 3, Table 0 === (2 rows, 6 cols)
+  Row[0][0] = 'SKODA AUTO Volkswagen India Private Limited\nE-1, MIDC Industrial Area, Phase III, Village Nigoje,\nMhalunge Kharabwadi Chakan Tal, Khed, Pune,\nMaharashtra, 410501 India\nGSTIN: 27AACCV4229P1ZT\nPAN No.: AACCV4229P | IEC Code: 0307019390'
+  Row[0]: pos=SKODA AUTO Volkswagen India Private Limited
+E-1, MIDC Industrial Area, Phase III, Village Nigoje,
+Mhalunge Kharabwadi Chakan Tal, Khed, Pune,
+Maharashtra, 410501 India
+GSTIN: 27AACCV4229P1ZT
+PAN No.: AACCV4229P | IEC Code: 0307019390 | part=Rechnung
+Invoice
+100008454 | desc=MA-Nr.
+MA-No.
+VN0002106
+  Row[1]: pos=None | part=Original / Origin | desc=Lieferung
+Delivery
+61854544
+
+=== Page 3, Table 1 === (22 rows, 15 cols)
+  Row[0][0] = 'PosNr. ZeichnungsNr. Benennung Lnd-Code Zolltarif- DBK-code Bestell-Nr. HU-Nr. / HU-No. Menge ME BZA Nettogewicht KG Preis/100 EUR Gesamtpreis EUR\nNr.\nPos-No. Drawing-No. Description CoO HS Code Purch. Ord. No. Quant. Unit Ac.ty. Net weight Price/100 Total'
+  Row[0]: pos=PosNr. ZeichnungsNr. Benennung Lnd-Code Zolltarif- DBK-code Bestell-Nr. HU-Nr. / HU-No. Menge ME BZA Nettogewicht KG Preis/100 EUR Gesamtpreis EUR
+Nr.
+Pos-No. Drawing-No. Description CoO HS Code Purch. Ord. No. Quant. Unit Ac.ty. Net weight Price/100 Total | part= | desc=
+  Row[1]: pos=000090 | part=5QP 407 255 A | desc=SCHWENKLAGER <-- DATA
+  Row[2]: pos=None | part= | desc=STEERING
+KNUCKLE
+  Row[3]: pos=000100 | part=5QP 407 256 A | desc=SCHWENKLAGER <-- DATA
+  Row[4]: pos=None | part= | desc=STEERING
+KNUCKLE
+  Row[5]: pos=000110 | part=2Q0 915 331 | desc=BATTERIEKONSOLE <-- DATA
+  Row[6]: pos=None | part= | desc=BATTERY TRAY
+  Row[7]: pos=000120 | part=5QP 121 203 | desc=KUEHLERHUTZE <-- DATA
+  Row[8]: pos=None | part= | desc=RADIATOR SHROUD
+  Row[9]: pos=000130 | part=5QP 253 059 DB | desc=ABGASANLAGE,
+VORN <-- DATA
+  Row[10]: pos=None | part= | desc=
+  Row[11]: pos=None | part= | desc=EXHAUST SYSTEM,
+FR
+  Row[12]: pos=000140 | part=5JL 809 261 | desc=VERST.SAEULE C <-- DATA
+  Row[13]: pos=None | part= | desc=REINF.PILLAR C
+  Row[14]: pos=000150 | part=5JL 809 262 | desc=VERST.SAEULE C <-- DATA
+  Row[15]: pos=None | part= | desc=REINF.PILLAR C
+  Row[16]: pos=000160 | part=5JL 809 421 | desc=SEITENTEIL <-- DATA
+  Row[17]: pos=None | part= | desc=SIDE PANEL
+  Row[18]: pos=000170 | part=5JL 809 422 | desc=SEITENTEIL <-- DATA
+  Row[19]: pos=None | part= | desc=SIDE PANEL
+  Row[20]: pos=000180 | part=5JL 827 106 | desc=AUSSENTEIL <-- DATA
+  Row[21]: pos=None | part= | desc=OUTER PART
+
+=== Page 4, Table 0 === (2 rows, 6 cols)
+  Row[0][0] = 'SKODA AUTO Volkswagen India Private Limited\nE-1, MIDC Industrial Area, Phase III, Village Nigoje,\nMhalunge Kharabwadi Chakan Tal, Khed, Pune,\nMaharashtra, 410501 India\nGSTIN: 27AACCV4229P1ZT\nPAN No.: AACCV4229P | IEC Code: 0307019390'
+  Row[0]: pos=SKODA AUTO Volkswagen India Private Limited
+E-1, MIDC Industrial Area, Phase III, Village Nigoje,
+Mhalunge Kharabwadi Chakan Tal, Khed, Pune,
+Maharashtra, 410501 India
+GSTIN: 27AACCV4229P1ZT
+PAN No.: AACCV4229P | IEC Code: 0307019390 | part=Rechnung
+Invoice
+100008454 | desc=MA-Nr.
+MA-No.
+VN0002106
+  Row[1]: pos=None | part=Original / Origin | desc=Lieferung
+Delivery
+61854544
+
+=== Page 4, Table 1 === (21 rows, 15 cols)
+  Row[0][0] = 'PosNr. ZeichnungsNr. Benennung Lnd-Code Zolltarif- DBK-code Bestell-Nr. HU-Nr. / HU-No. Menge ME BZA Nettogewicht KG Preis/100 EUR Gesamtpreis EUR\nNr.\nPos-No. Drawing-No. Description CoO HS Code Purch. Ord. No. Quant. Unit Ac.ty. Net weight Price/100 Total'
+  Row[0]: pos=PosNr. ZeichnungsNr. Benennung Lnd-Code Zolltarif- DBK-code Bestell-Nr. HU-Nr. / HU-No. Menge ME BZA Nettogewicht KG Preis/100 EUR Gesamtpreis EUR
+Nr.
+Pos-No. Drawing-No. Description CoO HS Code Purch. Ord. No. Quant. Unit Ac.ty. Net weight Price/100 Total | part= | desc=
+  Row[1]: pos=None | part= | desc=
+  Row[2]: pos=None | part= | desc=
+  Row[3]: pos=000190 | part=5JL 831 112 | desc=TUERAUSSENTEIL <-- DATA
+  Row[4]: pos=None | part= | desc=DOOR OUTER
+PANEL
+  Row[5]: pos=000200 | part=5JL 831 561 | desc=SCHARNIERVERSTA
+ERK <-- DATA
+  Row[6]: pos=None | part= | desc=
+  Row[7]: pos=None | part= | desc=HINGE REINF.
+  Row[8]: pos=000210 | part=5JN 863 045 4PK | desc=VERKLEIDUNG <-- DATA
+  Row[9]: pos=None | part= | desc=LINING
+  Row[10]: pos=000220 | part=5JN 863 046 4PK | desc=VERKLEIDUNG <-- DATA
+  Row[11]: pos=None | part= | desc=LINING
+  Row[12]: pos=000230 | part=5JN 867 765 4PK | desc=VERKL.RADHAUS
+HINT <-- DATA
+  Row[13]: pos=None | part= | desc=
+  Row[14]: pos=None | part= | desc=TRIM,WHEEL
+HOUSING
+  Row[15]: pos=000240 | part=5JN 867 766 4PK | desc=VERKL.RADHAUS
+HINT <-- DATA
+  Row[16]: pos=None | part= | desc=TRIM,WHEEL
+HOUSING
+  Row[17]: pos=000250 | part=5JP 857 503 4PK | desc=ABDECKUNG <-- DATA
+  Row[18]: pos=None | part= | desc=COVER
+  Row[19]: pos=000260 | part=5JP 857 504 4PK | desc=ABDECKUNG <-- DATA
+  Row[20]: pos=None | part= | desc=COVER
+
+=== Page 5, Table 0 === (2 rows, 6 cols)
+  Row[0][0] = 'SKODA AUTO Volkswagen India Private Limited\nE-1, MIDC Industrial Area, Phase III, Village Nigoje,\nMhalunge Kharabwadi Chakan Tal, Khed, Pune,\nMaharashtra, 410501 India\nGSTIN: 27AACCV4229P1ZT\nPAN No.: AACCV4229P | IEC Code: 0307019390'
+  Row[0]: pos=SKODA AUTO Volkswagen India Private Limited
+E-1, MIDC Industrial Area, Phase III, Village Nigoje,
+Mhalunge Kharabwadi Chakan Tal, Khed, Pune,
+Maharashtra, 410501 India
+GSTIN: 27AACCV4229P1ZT
+PAN No.: AACCV4229P | IEC Code: 0307019390 | part=Rechnung
+Invoice
+100008454 | desc=MA-Nr.
+MA-No.
+VN0002106
+  Row[1]: pos=None | part=Original / Origin | desc=Lieferung
+Delivery
+61854544
+
+=== Page 5, Table 1 === (20 rows, 15 cols)
+  Row[0][0] = 'PosNr. ZeichnungsNr. Benennung Lnd-Code Zolltarif- DBK-code Bestell-Nr. HU-Nr. / HU-No. Menge ME BZA Nettogewicht KG Preis/100 EUR Gesamtpreis EUR\nNr.\nPos-No. Drawing-No. Description CoO HS Code Purch. Ord. No. Quant. Unit Ac.ty. Net weight Price/100 Total'
+  Row[0]: pos=PosNr. ZeichnungsNr. Benennung Lnd-Code Zolltarif- DBK-code Bestell-Nr. HU-Nr. / HU-No. Menge ME BZA Nettogewicht KG Preis/100 EUR Gesamtpreis EUR
+Nr.
+Pos-No. Drawing-No. Description CoO HS Code Purch. Ord. No. Quant. Unit Ac.ty. Net weight Price/100 Total | part= | desc=
+  Row[1]: pos=000270 | part=5QP 802 952 B | desc=QUERTRAEGER,
+AUSSEN <-- DATA
+  Row[2]: pos=None | part= | desc=
+  Row[3]: pos=None | part= | desc=CROSS MEMBER,
+OTR
+  Row[4]: pos=000280 | part=5JL 810 972 | desc=RADHAUSSCHALE,
+HI. <-- DATA
+  Row[5]: pos=None | part= | desc=WHEEL HOUSING
+LINE
+  Row[6]: pos=000290 | part=5JL 837 461 | desc=HEBEGESTELL <-- DATA
+  Row[7]: pos=None | part= | desc=LIFTING
+MECHANISM
+  Row[8]: pos=000300 | part=5JL 837 915 | desc=ABDECKUNG <-- DATA
+  Row[9]: pos=None | part= | desc=COVER
+  Row[10]: pos=000310 | part=5JL 837 916 | desc=ABDECKUNG <-- DATA
+  Row[11]: pos=None | part= | desc=COVER
+  Row[12]: pos=000320 | part=5JN 857 407 G | desc=SPIEGELGEHAEUSE <-- DATA
+  Row[13]: pos=None | part= | desc=MIRROR HOUSING
+  Row[14]: pos=000330 | part=5QP 803 501 E | desc=LAENGSTR.RADH.
+HI. <-- DATA
+  Row[15]: pos=None | part= | desc=SIDE MEMBER,
+WHEEL
+  Row[16]: pos=000340 | part=5QP 803 502 E | desc=LAENGSTR.RADH.
+HI. <-- DATA
+  Row[17]: pos=None | part= | desc=SIDE MEMBER,
+WHEEL
+  Row[18]: pos=000350 | part=5JN 867 287 A
+2VX | desc=VERKL.SAEULE C <-- DATA
+  Row[19]: pos=None | part= | desc=TRIM PANEL,PILLAR
+
+=== Page 6, Table 0 === (2 rows, 6 cols)
+  Row[0][0] = 'SKODA AUTO Volkswagen India Private Limited\nE-1, MIDC Industrial Area, Phase III, Village Nigoje,\nMhalunge Kharabwadi Chakan Tal, Khed, Pune,\nMaharashtra, 410501 India\nGSTIN: 27AACCV4229P1ZT\nPAN No.: AACCV4229P | IEC Code: 0307019390'
+  Row[0]: pos=SKODA AUTO Volkswagen India Private Limited
+E-1, MIDC Industrial Area, Phase III, Village Nigoje,
+Mhalunge Kharabwadi Chakan Tal, Khed, Pune,
+Maharashtra, 410501 India
+GSTIN: 27AACCV4229P1ZT
+PAN No.: AACCV4229P | IEC Code: 0307019390 | part=Rechnung
+Invoice
+100008454 | desc=MA-Nr.
+MA-No.
+VN0002106
+  Row[1]: pos=None | part=Original / Origin | desc=Lieferung
+Delivery
+61854544
+
+=== Page 6, Table 1 === (15 rows, 9 cols)
+  Row[0][0] = 'Behältertyp Menge ME Länge MM Breite MM Höhe MM HU-Volumen M3 Gesamtvolumen M3 Verpackungskosten EUR\nBox type Quantity Unit Length Width Height HU_VolumenH Total volume Total'
+  Row[0]: pos=Behältertyp Menge ME Länge MM Breite MM Höhe MM HU-Volumen M3 Gesamtvolumen M3 Verpackungskosten EUR
+Box type Quantity Unit Length Width Height HU_VolumenH Total volume Total | part= | desc=
+  Row[1]: pos=A 153718 | part=4 | desc=PCE
+  Row[2]: pos=A 153722 | part=2 | desc=PCE
+  Row[3]: pos=A 153723 | part=2 | desc=PCE
+  Row[4]: pos=A 153724 | part=3 | desc=PCE
+  Row[5]: pos=A 153792 | part=2 | desc=PCE
+  Row[6]: pos=A 153796 | part=1 | desc=PCE
+  Row[7]: pos=A 157290 | part=1 | desc=PCE
+  Row[8]: pos=A 15S118 | part=8 | desc=PCE
+  Row[9]: pos=A 15S401 | part=1 | desc=PCE
+  Row[10]: pos=A 15S404 | part=2 | desc=PCE
+  Row[11]: pos=A 15S438 | part=2 | desc=PCE
+  Row[12]: pos=A 15S447 | part=4 | desc=PCE
+  Row[13]: pos=A 15S454 | part=1 | desc=PCE
+  Row[14]: pos=A 15S480 | part=4 | desc=PCE
+
+=== Page 7, Table 0 === (2 rows, 3 cols)
+  Row[0][0] = 'NOS OF PKGS'
+  Row[0]: pos=NOS OF PKGS | part=NET WEIGHT IN KGS | desc=GROSS WEIGHT IN KGS
+  Row[1]: pos=37 | part=3,148.642 | desc=4,817.592
+
+=== Page 7, Table 1 === (2 rows, 3 cols)
+  Row[0][0] = 'CONTAINER NOS.'
+  Row[0]: pos=CONTAINER NOS. | part=SHIPPING LINE SEAL NO. | desc=RFID E-SEAL NO.
+  Row[1]: pos=MRSU5982627 | part=MLIN3397980 | desc=iTEK03599907
+
+=== Page 8, Table 0 === (2 rows, 6 cols)
+  Row[0][0] = 'SKODA AUTO Volkswagen India Private Limited\nE-1, MIDC Industrial Area, Phase III, Village Nigoje,\nMhalunge Kharabwadi Chakan Tal, Khed, Pune,\nMaharashtra, 410501 India\nGSTIN: 27AACCV4229P1ZT\nPAN No.: AACCV4229P | IEC Code: 0307019390'
+  Row[0]: pos=SKODA AUTO Volkswagen India Private Limited
+E-1, MIDC Industrial Area, Phase III, Village Nigoje,
+Mhalunge Kharabwadi Chakan Tal, Khed, Pune,
+Maharashtra, 410501 India
+GSTIN: 27AACCV4229P1ZT
+PAN No.: AACCV4229P | IEC Code: 0307019390 | part=Rechnung
+Invoice
+100008454 | desc=MA-Nr.
+MA-No.
+VN0002106
+  Row[1]: pos=None | part=Original / Origin | desc=Lieferung
+Delivery
+61854544

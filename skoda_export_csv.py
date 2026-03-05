@@ -200,8 +200,9 @@ def parse_skoda_invoice(pdf_path: str) -> dict:
                 if "Pos" not in header_text and "PosNr" not in header_text:
                     continue
 
-                # Skip the header rows (first 4 rows are header/subheader/blank)
-                for row_idx in range(4, len(table)):
+                # Skip only the header row (row 0); data rows are identified by
+                # their 6-digit position number in column 0.
+                for row_idx in range(1, len(table)):
                     row = table[row_idx]
 
                     # Skip rows that don't have 15 columns
