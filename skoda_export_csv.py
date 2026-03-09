@@ -312,6 +312,125 @@ def parse_skoda_invoice(pdf_path: str) -> dict:
         "Parsed invoice %s: %d items found.",
         result["invoice_no"], len(result["items"])
     )
+    
+    # --- Fallback for PDFs with reversed/RTL table corruption (such as 8458, 8462) ---
+    if len(result["items"]) == 0:
+        logger.warning("No items found using pdfplumber table extraction. Attempting robust text-based fallback...")
+        fallback_result = _fallback_parse_pypdfium(pdf_path)
+        if len(fallback_result["items"]) > 0:
+            logger.info("Fallback successful! Extracted %d items.", len(fallback_result["items"]))
+            
+            # Carry over header invoice information if pdfplumber missed it but fallback caught it
+            if not result["invoice_no"] and fallback_result["invoice_no"]:
+                result["invoice_no"] = fallback_result["invoice_no"]
+            if not result["invoice_date"] and fallback_result["invoice_date"]:
+                result["invoice_date"] = fallback_result["invoice_date"]
+                
+            result["items"] = fallback_result["items"]
+        else:
+            logger.error("Fallback also failed to extract items.")
+
+    return result
+
+def _fallback_parse_pypdfium(pdf_path: str) -> dict:
+    import pypdfium2 as pdfium
+    
+    result = {
+        "invoice_no": "",
+        "invoice_date": "",
+        "currency": "EUR",
+        "items": [],
+    }
+    
+    try:
+        pdf = pdfium.PdfDocument(pdf_path)
+        full_text = []
+        for i in range(len(pdf)):
+            page = pdf[i]
+            textpage = page.get_textpage()
+            text = textpage.get_text_bounded()
+            full_text.append(text)
+            
+        master_text = " ".join([t.replace("\n", " ").replace("\r", " ") for t in full_text])
+        
+        inv_match = re.search(r"(?:Invoice|Rechnung)\s*(\d{9,})", master_text)
+        if inv_match:
+            result["invoice_no"] = inv_match.group(1)
+            
+        date_match = re.search(r"(\d{2}-\d{2}-\d{4})\s*/\s*\d{4}-\d{2}-\d{2}", master_text)
+        if date_match:
+            result["invoice_date"] = date_match.group(1)
+        else:
+            date_match2 = re.search(r"(\d{2}\.\d{2}\.\d{4})", master_text)
+            if date_match2:
+                result["invoice_date"] = date_match2.group(1).replace(".", "-")
+                
+        curr_match = re.search(r"(EUR|USD|GBP|INR)", master_text)
+        if curr_match:
+            result["currency"] = curr_match.group(1)
+            
+        # Regex to grab line items based on PyPDFium textual alignment
+        # Updated DBK to [A-Z0-9]* and allowed for optional trailing text
+        pattern = r"(?:^|\s)(?P<pos_no>0\d{5})\s+(?P<part_desc>(?:(?!\s+[A-Z]{2}\s+\d{8}\s).)+?)\s+(?P<coo>[A-Z]{2})\s+(?P<hs_code>\d{8})\s+(?P<dbk>[A-Z0-9]*)\s+(?:.*?)\s+(?P<qty>[\d.,]+)\s+(?P<unit>PCE|PCS|KGS?|MTR?)\s+[A-Z]\s+(?P<weight>[\d.,]+)\s+(?P<price>[\d.,]+)\s+(?P<total>[\d.,]+)"
+        
+        for m in re.finditer(pattern, master_text):
+            pos_no = m.group("pos_no")
+            part_desc = m.group("part_desc").strip()
+            
+            if len(part_desc) > 300: 
+                continue
+                
+            # Separate Part Number (e.g. "5JL 809 377 B A9W") and German/English Description from glued string
+            part_match = re.search(r"^([A-Z0-9]{3,4}\s+[A-Z0-9]{2,4}\s+[A-Z0-9]{2,4}(?:\s+[A-Z0-9]{1,4}){0,3})(?=\s|$)", part_desc)
+            if part_match:
+                # Part numbers usually look like '6JM 857 551 B 2WJ' 
+                part_no_raw = part_match.group(1).strip()
+                desc = part_desc[len(part_no_raw):].strip()
+            else:
+                part_no_raw = part_desc.split()[0] if part_desc.split() else ""
+                desc = part_desc
+                
+            part_no = _clean_drawing_no(part_no_raw)
+            
+            if desc and part_no:
+                product_desc = f"Parts & Components of Passenger Car - Part no. {part_no}  {desc}"
+            elif desc:
+                product_desc = desc
+            elif part_no:
+                product_desc = f"Part no. {part_no}"
+            else:
+                product_desc = ""
+                
+            price_per_100 = m.group("price")
+            try:
+                p100 = float(_clean_number(price_per_100))
+                rate = round(p100 / 100, 2)
+            except:
+                rate = 0.0
+                
+            unit_raw = m.group("unit")
+            unit_map = {"PCE": "PCS", "KG": "KGS", "M": "MTR"}
+            unit = unit_map.get(unit_raw, unit_raw)
+                
+            item = {
+                "pos_no": pos_no,
+                "part_no": part_no,
+                "product_desc": product_desc,
+                "coo": m.group("coo"),
+                "hs_code": m.group("hs_code"),
+                "dbk_code": m.group("dbk"),
+                "quantity": _clean_number(m.group("qty")),
+                "unit": unit,
+                "net_weight": _clean_number(m.group("weight")),
+                "price_per_100": _clean_number(price_per_100),
+                "rate": rate,
+                "total_price": _clean_number(m.group("total")),
+            }
+            result["items"].append(item)
+            
+    except Exception as e:
+        logger.error("PyPDFium2 fallback parse failed: %s", e)
+        
     return result
 
 
@@ -356,6 +475,110 @@ def load_hs_unit_map(excel_path: str) -> dict[str, str]:
     except Exception as e:
         logger.error("Failed to load HS unit map: %s", e)
         return {}
+
+
+def load_freight_declaration(excel_path: str) -> list[dict]:
+    """
+    Load Freight Declaration Excel and return a list of full item dictionaries.
+    Returns list of items containing part_no, desc, rate, quantity, weights, coo, etc.
+    """
+    try:
+        import openpyxl
+        wb = openpyxl.load_workbook(excel_path, data_only=True)
+        ws = wb.active
+        items = []
+
+        # Find column indices
+        headers = []
+        for cell in ws[1]:
+            headers.append(str(cell.value).strip() if cell.value else "")
+
+        try:
+            get_idx = lambda n: headers.index(n)
+            part_col_idx = get_idx("ProductName")
+            rate_col_idx = get_idx("RevisedUnitPrice")
+            qty_col_idx = get_idx("Quantity")
+            weight_col_idx = get_idx("Weight")
+            hsn_col_idx = get_idx("HSNcode")
+            dbk_col_idx = get_idx("DBK")
+            coo_col_idx = get_idx("COO")
+            
+            # Usually "ProductDescription" or similar, fallback: check for variations
+            desc_cols = [i for i, h in enumerate(headers) if "Desc" in h or h == "ProductDescription"]
+            desc_col_idx = desc_cols[0] if desc_cols else -1
+        except ValueError as e:
+            logger.error("Missing required columns in Freight Declaration: %s", e)
+            raise ValueError(f"Missing required columns in Freight Declaration: {e}")
+
+        for row_idx, row in enumerate(ws.iter_rows(min_row=2, values_only=True), start=1):
+            if not row or row[part_col_idx] is None:
+                continue
+
+            part_no = str(row[part_col_idx]).strip()
+
+            # The summary block at the bottom has ProductName as 'A', 'B', 'C', 'D', 'E', 'F'
+            # or it might include 'Total' somewhere. We stop parsing when we hit these.
+            if len(part_no) == 1 and part_no.upper() in "ABCDEFGHIJ":
+                break
+            if "total" in part_no.lower():
+                break
+
+            rate_raw = row[rate_col_idx]
+            
+            desc_raw = "Parts & Components of Passenger Car"
+            if desc_col_idx != -1 and row[desc_col_idx]:
+                desc_val = str(row[desc_col_idx]).strip()
+                # Clean prefix "Parts & Components of Passenger Car - Part no. XXXXX " if it's there
+                prefix_idx = desc_val.find("  ") # Double space separates standard prefix from actual desc
+                if prefix_idx != -1:
+                    desc_raw = desc_val[prefix_idx+2:].strip()
+                else:
+                    # In case it's just the description "TUNNEL" or "SUN VISOR"
+                    desc_raw = desc_val
+
+            try:
+                rate = round(float(rate_raw), 2) # Rounding to 2 decimal places
+            except (ValueError, TypeError):
+                rate = 0.0
+
+            try: quantity = str(row[qty_col_idx]).strip()
+            except: quantity = "0"
+
+            try: net_weight = str(row[weight_col_idx]).strip()
+            except: net_weight = "0"
+
+            try: coo = str(row[coo_col_idx]).strip()
+            except: coo = "IN"
+
+            try: hs_code = str(row[hsn_col_idx]).strip()
+            except: hs_code = ""
+
+            try: dbk_code = str(row[dbk_col_idx]).strip()
+            except: dbk_code = ""
+
+            product_desc = f"Parts & Components of Passenger Car - Part no. {part_no}  {desc_raw}"
+
+            item = {
+                "pos_no": str(row_idx * 10).zfill(6),
+                "part_no": part_no,
+                "product_desc": product_desc,
+                "coo": coo,
+                "hs_code": hs_code,
+                "dbk_code": dbk_code,
+                "quantity": quantity,
+                "unit": "PCS",
+                "net_weight": net_weight,
+                "price_per_100": "0.0",
+                "rate": rate,
+                "total_price": "0.0",
+            }
+            items.append(item)
+
+        wb.close()
+        return items
+    except Exception as e:
+        logger.error("Failed to load Freight Declaration: %s", e)
+        raise e
 
 
 # ============================================================================
@@ -480,6 +703,7 @@ class SkodaExportApp:
 
         # --- State ---
         self.pdf_path: Optional[str] = None
+        self.freight_path: Optional[str] = None
         self.hs_map_path: Optional[str] = None
         self.hs_unit_map: dict[str, str] = {}
         self.parsed_data: Optional[dict] = None
@@ -658,6 +882,17 @@ class SkodaExportApp:
             grp1, text="No PDF selected", foreground="#888",
         )
         self.lbl_pdf.pack(anchor="w", pady=2)
+
+        ttk.Separator(grp1, orient="horizontal").pack(fill="x", pady=5)
+        
+        ttk.Button(
+            grp1, text="📄  Select Freight Declaration",
+            command=self._pick_freight, style="Secondary.TButton",
+        ).pack(fill="x", pady=3)
+        self.lbl_freight = ttk.Label(
+            grp1, text="No Freight Declaration selected", foreground="#888",
+        )
+        self.lbl_freight.pack(anchor="w", pady=2)
 
         ttk.Separator(grp1, orient="horizontal").pack(fill="x", pady=5)
 
@@ -849,6 +1084,18 @@ class SkodaExportApp:
             )
             self._log(f"PDF selected: {os.path.basename(path)}")
 
+    def _pick_freight(self) -> None:
+        path = filedialog.askopenfilename(
+            title="Select Freight Declaration Excel",
+            filetypes=[("Excel Files", "*.xlsx *.xls")],
+        )
+        if path:
+            self.freight_path = path
+            self.lbl_freight.config(
+                text=os.path.basename(path), foreground="#28a745",
+            )
+            self._log(f"Freight Declaration selected: {os.path.basename(path)}")
+
     def _auto_load_hs_master(self) -> None:
         """Try to auto-load the HS Code Master Excel from the app directory."""
         master_path = resource_path(HS_MASTER_FILENAME)
@@ -889,6 +1136,20 @@ class SkodaExportApp:
             messagebox.showwarning("Warning", "Please select an invoice PDF first.")
             return
 
+        if not self.freight_path:
+            messagebox.showwarning("Warning", "Please select a Freight Declaration Excel first.")
+            return
+
+        self._status("Loading Freight Declaration...")
+        try:
+            freight_items = load_freight_declaration(self.freight_path)
+            self._log(f"Loaded {len(freight_items)} items from Freight Declaration.")
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to load Freight Declaration:\n{e}")
+            self._log(f"ERROR: {e}")
+            self._status("Freight load failed")
+            return
+
         self._status("Parsing invoice...")
         self._log("--- Parsing PDF ---")
 
@@ -899,6 +1160,15 @@ class SkodaExportApp:
             self._log(f"ERROR: {e}")
             self._status("Parse failed")
             return
+
+        if not freight_items:
+            messagebox.showerror("Error", "Freight Declaration has no items.")
+            self.parsed_data = None
+            self._status("Parse Failed: Empty Freight Data")
+            return
+            
+        # VERY SIMPLE: Just replace the entire items list with the list from Freight dec
+        self.parsed_data["items"] = freight_items
 
         # Build Logisys rows for preview (uses current GUI settings)
         preview_rows = build_logisys_rows(
